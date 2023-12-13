@@ -1,20 +1,18 @@
 #include "main.h"
 
 /**
- * bigi_pall - THis is a function that is use to print the element of a stack
- * @stack: This is a stack of a doubly linked list
- * @line_num: The line number of the command for printing error message 
- * Return: Void
+ * pall - Display all elements in a stack from top to bottom
+ *
+ * @stack: Doubly linked list for the stack
+ * @line_number: Bytecode file line number been executed
  */
-
-void bigi_pall(stack_t **stack)
+void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *array = NULL;
+	(void)line_number;
 
-	array = *stack;
-	if (*array != NULL)
+	while (*stack != NULL)
 	{
-		printf("%d\n", array->n);
-		array = array->next;
+		printf("%d\n", (**stack).n);
+		*stack = (**stack).next;
 	}
 }
