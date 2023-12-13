@@ -60,17 +60,3 @@ int main(int argc, char **argv)
 	return (EXIT_SUCCESS);
 }
 
-void pall(stack_t **stack, unsigned int line_number)
-{
-	printf("Pall Opcode found\n");
-}
-
-void push(stack_t **stack, unsigned int line_number)
-{
-	char *token = NULL;
-
-	token = strtok(NULL, " \n\t");
-	printf("Push Opcode found ");
-	printf("value: %s\n", token);
-
-}
