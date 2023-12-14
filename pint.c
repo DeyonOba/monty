@@ -3,11 +3,9 @@
 /**
  * pint - THis is a function that prints the topmost value of a stack
  * @stack: The stack of doubly linked list
- * @line_num: This is the line number of command for error messae printing
- * Return: Nothing for a void function
+ * @line_number: This is the line number of command for error messae printing
  */
-
-void pint(stack_t **stack, unsigned int line_num)
+void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top = *stack;
 
@@ -20,4 +18,3 @@ void pint(stack_t **stack, unsigned int line_num)
 	else
 		printf("%d\n", top->n);
 }
-
