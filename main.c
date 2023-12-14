@@ -13,6 +13,7 @@ instruction_t opcode_f[] = {
 	{"nop", nop},
 	{"sub", sub},
 	{"div", divide},
+	{"mul", mul},
 	{NULL, NULL},
 };
 
