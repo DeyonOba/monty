@@ -6,6 +6,10 @@ int main(int argc, char **argv);
 instruction_t opcode_f[] = {
 	{"pall", pall},
 	{"push", push},
+	{"pint", pint},
+	{"pop", pop},
+	{"add", add},
+	{"swap", swap},
 	{NULL, NULL},
 };
 
