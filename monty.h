@@ -44,6 +44,7 @@ void pint(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void divide(stack_t **stack, unsigned int line_number);
 
 int is_int(const char *str);
 void free_list(stack_t *head);
