@@ -12,6 +12,7 @@ instruction_t opcode_f[] = {
 	{"swap", swap},
 	{"nop", nop},
 	{"sub", sub},
+	{"div", divide},
 	{NULL, NULL},
 };
 
