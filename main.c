@@ -20,6 +20,7 @@ int main(int argc, char **argv)
 {
 	stack_t *stack_queue = NULL;
 	unsigned int line_number = 1;
+	size_t max_line_length = MAX_LINE_LENGTH;
 	char *line = NULL, *token;
 	int i;
 	FILE *file = NULL;
@@ -34,6 +35,13 @@ int main(int argc, char **argv)
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+
+	line = malloc(max_line_length);
+	if (line == NULL)
+	{
+		fprintf(stderr, "Memory allocation failed\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -59,6 +67,7 @@ int main(int argc, char **argv)
 		}
 		line_number++;
 	}
+	free(line);
 	fclose(file);
 	return (EXIT_SUCCESS);
 }
