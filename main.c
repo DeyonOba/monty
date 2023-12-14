@@ -14,6 +14,8 @@ instruction_t opcode_f[] = {
 	{"sub", sub},
 	{"div", divide},
 	{"mul", mul},
+	{"mod", mod},
+	{"#", nop},
 	{NULL, NULL},
 };
 
