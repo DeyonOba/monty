@@ -10,7 +10,7 @@ instruction_t opcode_f[] = {
 	{"pop", pop},
 	{"add", add},
 	{"swap", swap},
-	{"nob", nob},
+	{"nop", nop},
 	{NULL, NULL},
 };
 
