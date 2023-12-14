@@ -46,4 +46,5 @@ void swap(stack_t **stack, unsigned int line_num);
 
 int is_int(const char *str);
 void free_list(stack_t *head);
+void free_resources(void);
 #endif
