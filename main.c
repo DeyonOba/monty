@@ -68,6 +68,7 @@ int main(int argc, char **argv)
 		line_number++;
 	}
 	free(line);
+	free_list(stack_queue);
 	fclose(file);
 	return (EXIT_SUCCESS);
 }
