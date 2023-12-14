@@ -44,14 +44,14 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-        stack_t *initial = *stack;/** Store a copy of stack to avoid modifying the main stack**/
-        (void)line_number;
+	stack_t *initial = *stack;/** Store a copy of stack to initial**/
+	(void)line_number;
 
-        while (initial != NULL)
-        {
-                printf("%d\n", initial->n);
-                initial = initial->next;
-        }
+	while (initial != NULL)
+	{
+		printf("%d\n", initial->n);
+		initial = initial->next;
+	}
 }
 
 

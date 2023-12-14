@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * bigi_add - This is the function that add top two element in a stack
+ * add - This is the function that add top two element in a stack
  * @stack: The pointer to the top of the stack
  * @line_num: The line of the command for err printing
  * Return: Void

@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * bigi_pint - THis is a function that prints the topmost value of a stack
+ * pint - THis is a function that prints the topmost value of a stack
  * @stack: The stack of doubly linked list
  * @line_num: This is the line number of command for error messae printing
  * Return: Nothing for a void function

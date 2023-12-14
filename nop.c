@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * bigi_nop - This is a function that do not do anythingbut required to be created
+ * nop - This is a function that do not do anythingbut required to be created
  * @stack: The pointer to the stack
  * @line_num: The number of the command line for err message printing
  * Return: NOthing

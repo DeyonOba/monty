@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * bigi_swap - This is the function thaa swaps the top two element of a stack
+ * swap - This is the function thaa swaps the top two element of a stack
  * @stack: The double pointer to the stack
  * @line_num: The line number of the command that is used to print err message
  * Return: Nothing

@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * bigi_pop - This function removes the topmost element of a stack
+ * pop - This function removes the topmost element of a stack
  * @line_num: THis is the line number of commands for printing error messages
  * @stack: This is the stack of a doubly linked list
  * Return: Nothing

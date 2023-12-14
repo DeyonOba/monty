@@ -1,5 +1,7 @@
-#define _GNU_SOURCE
 #include "monty.h"
+#define MAX_LINE_LENGTH 1024
+
+int main(int argc, char **argv);
 
 instruction_t opcode_f[] = {
 	{"pall", pall},
@@ -19,7 +21,6 @@ int main(int argc, char **argv)
 	stack_t *stack_queue = NULL;
 	unsigned int line_number = 1;
 	char *line = NULL, *token;
-	size_t size = 0;
 	int i;
 	FILE *file = NULL;
 
@@ -36,7 +37,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	while (getline(&line, &size, file) != -1)
+	while (fgets(line, MAX_LINE_LENGTH, file) != NULL)
 	{
 		token = strtok(line, " \t\n");
 		if (token != NULL)
@@ -56,7 +57,8 @@ int main(int argc, char **argv)
 				exit(EXIT_FAILURE);
 			}
 		}
-		free(line), line = NULL, line_number++;
+		line_number++;
 	}
+	fclose(file);
 	return (EXIT_SUCCESS);
 }
