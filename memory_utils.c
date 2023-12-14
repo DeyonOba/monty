@@ -16,22 +16,3 @@ void free_list(stack_t *head)
 		free(current);
 	}
 }
-
-/**
- * free_resources - Free dynamicall allocation resources used by monty
- */
-void free_resources(void)
-{
-	if (file != NULL)
-	{
-		fclose(file);
-	}
-	if (stack_queue != NULL)
-	{
-		free_list(stack_queue);
-	}
-	if (line != NULL)
-	{
-		free(line);
-	}
-}

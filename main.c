@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		atexit(free_resources);
+		free_resources();
 		exit(EXIT_FAILURE);
 	}
 
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	if (line == NULL)
 	{
 		fprintf(stderr, "Memory allocation failed\n");
-		atexit(free_resources);
+		free_resources();
 		exit(EXIT_FAILURE);
 	}
 
@@ -66,12 +66,31 @@ int main(int argc, char **argv)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n",
 						line_number, token);
-				atexit(free_resources);
+				free_resources();
 				exit(EXIT_FAILURE);
 			}
 		}
 		line_number++;
 	}
-	atexit(free_resources);
+	free_resources();
 	return (EXIT_SUCCESS);
+}
+
+/**
+ * free_resources - Free dynamicall allocation resources used by monty
+ */
+void free_resources(void)
+{
+	if (file != NULL)
+	{
+		fclose(file);
+	}
+	if (stack_queue != NULL)
+	{
+		free_list(stack_queue);
+	}
+	if (line != NULL)
+	{
+		free(line);
+	}
 }

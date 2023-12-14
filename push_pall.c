@@ -17,7 +17,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (!value || !is_int(value))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		atexit(free_resources);
+		free_resources();
 		exit(EXIT_FAILURE);
 	}
 
@@ -27,7 +27,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "memory allocation failed\n");
-		atexit(free_resources);
+		free_resources();
 		exit(EXIT_FAILURE);
 	}
 
