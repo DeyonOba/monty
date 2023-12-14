@@ -12,9 +12,11 @@ void add(stack_t **stack, unsigned int line_num)
 	if (!stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
+		free_resources();
 		exit(EXIT_FAILURE);
 	}
 
 	(*stack)->next->n += (*stack)->n;
+	(*stack)->next->previous = NULL;
 	pop(stack, line_num);
 }
