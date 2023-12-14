@@ -7,6 +7,11 @@ instruction_t opcode_f[] = {
 };
 
 /**
+ * main - Program entry point
+ *
+ * @argc: Argument count
+ * @argv: Argument vector
+ * Return: Integer 0 (Success), or 1 (Failure)
  */
 int main(int argc, char **argv)
 {
@@ -17,7 +22,6 @@ int main(int argc, char **argv)
 	int i;
 	FILE *file = NULL;
 
-	/* if user gives no argument or more than one argument*/
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -25,7 +29,6 @@ int main(int argc, char **argv)
 	}
 
 	file = fopen(argv[1], "r");
-	/* if the file failed to open argv[1] return the error*/
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -47,16 +50,12 @@ int main(int argc, char **argv)
 			}
 			if (opcode_f[i].opcode == NULL)
 			{
-				fprintf(
-						stderr, "L%u: unknown instruction %s\n",
+				fprintf(stderr, "L%u: unknown instruction %s\n",
 						line_number, token);
 				exit(EXIT_FAILURE);
 			}
 		}
-		free(line);
-	       line_number++, line = NULL;	
+		free(line), line = NULL, line_number++;
 	}
-
 	return (EXIT_SUCCESS);
 }
-
