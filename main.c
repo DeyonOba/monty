@@ -15,7 +15,6 @@ instruction_t opcode_f[] = {
 	{"div", divide},
 	{"mul", mul},
 	{"mod", mod},
-	{"#", nop},
 	{NULL, NULL},
 };
 
@@ -61,6 +60,9 @@ int main(int argc, char **argv)
 
 	while (fgets(line, MAX_LINE_LENGTH, file) != NULL)
 	{
+		if (line[0] == '#')
+			continue;
+
 		token = strtok(line, " \t\n");
 		if (token != NULL)
 		{
