@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include "monty.h"
 
 instruction_t opcode_f[] = {

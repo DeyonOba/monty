@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * bigi_pop - This function removes the topmost element of a stack
@@ -7,7 +7,7 @@
  * Return: Nothing
  */
 
-void bigi_pop(unsigned int line_num, stack_t *stack[])
+void pop(stack_t *stack[], unsigned int line_num)
 {
 	stack_t *top; /**Initailizes top as an element of a stack**/
 

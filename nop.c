@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * bigi_nop - This is a function that do not do anythingbut required to be created
@@ -7,7 +7,7 @@
  * Return: NOthing
  */
 
-void bigi_nop(unsigned int line_num, stack_t *stack)
+void nop(stack_t **stack, unsigned int line_num)
 {
 	(void)**stack;
 	(void)line_num;

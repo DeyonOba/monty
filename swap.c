@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * bigi_swap - This is the function thaa swaps the top two element of a stack
@@ -7,7 +7,7 @@
  * Return: Nothing
  */
 
-void bigi_swap(unsigned int line_num)
+void swap(stack_t **stack, unsigned int line_num)
 {
 	int temp_val;
 
@@ -18,6 +18,6 @@ void bigi_swap(unsigned int line_num)
 	}
 
 	temp_val = (*stack)->n;
-	(*stack)-> = (*stack)->next->n;
+	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = temp_val;
 }

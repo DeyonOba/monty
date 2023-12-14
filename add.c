@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * bigi_add - This is the function that add top two element in a stack
@@ -7,7 +7,7 @@
  * Return: Void
  */
 
-void bigi_add(unsigned int line_num, stack_t **stack)
+void add(stack_t **stack, unsigned int line_num)
 {
 	if (!stack || !(*stack)->next)
 	{
@@ -16,5 +16,5 @@ void bigi_add(unsigned int line_num, stack_t **stack)
 	}
 
 	(*stack)->next->n += (*stack)->n;
-	bigi_pop(stack, line_num);
+	pop(stack, line_num);
 }

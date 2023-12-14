@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * bigi_pint - THis is a function that prints the topmost value of a stack
@@ -7,7 +7,7 @@
  * Return: Nothing for a void function
  */
 
-void bigi_pint(unsigned int line_num, **stack)
+void pint(stack_t **stack, unsigned int line_num)
 {
 	stack_t *top = *stack;
 
