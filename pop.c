@@ -5,13 +5,13 @@
  * @line_number: Bytecode file number been executed
  * @stack: This is the stack of a doubly linked list
  */
-void pop(stack_t *stack[], unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top; /**Initailizes top as an element of a stack**/
 
 	if (*stack == NULL) /**Test if their is no element in the stack**/
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		free_resources();
 		exit(EXIT_FAILURE);
 	}
