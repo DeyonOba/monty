@@ -9,6 +9,10 @@ instruction_t opcode_f[] = {
 	{NULL, NULL},
 };
 
+stack_t *stack_queue = NULL;
+char *line = NULL;
+FILE *file = NULL;
+
 /**
  * main - Program entry point
  *
@@ -18,12 +22,10 @@ instruction_t opcode_f[] = {
  */
 int main(int argc, char **argv)
 {
-	stack_t *stack_queue = NULL;
 	unsigned int line_number = 1;
 	size_t max_line_length = MAX_LINE_LENGTH;
-	char *line = NULL, *token;
+	char *token;
 	int i;
-	FILE *file = NULL;
 
 	if (argc != 2)
 	{
@@ -35,6 +37,7 @@ int main(int argc, char **argv)
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		atexit(free_resources);
 		exit(EXIT_FAILURE);
 	}
 
@@ -42,6 +45,7 @@ int main(int argc, char **argv)
 	if (line == NULL)
 	{
 		fprintf(stderr, "Memory allocation failed\n");
+		atexit(free_resources);
 		exit(EXIT_FAILURE);
 	}
 
@@ -62,13 +66,12 @@ int main(int argc, char **argv)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n",
 						line_number, token);
+				atexit(free_resources);
 				exit(EXIT_FAILURE);
 			}
 		}
 		line_number++;
 	}
-	free(line);
-	free_list(stack_queue);
-	fclose(file);
+	atexit(free_resources);
 	return (EXIT_SUCCESS);
 }
