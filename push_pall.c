@@ -66,13 +66,13 @@ int is_int(const char *str)
 	if (str == NULL)
 		return (0);
 
-	while (*str)
+	while (*str != '\0')
 	{
 		if (!(*str >= '0' && *str <= '9') && *str != '-' && *str != '+')
 		{
 			return (0);
-			str++;
 		}
+		str++;
 	}
 
 	return (1);
