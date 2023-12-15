@@ -9,12 +9,14 @@
 
 void pstr(stack_t **stack, unsigned int line_number)
 {
+	stack_t *element;
 	(void)line_number;
 
 	if (*stack != NULL && (*stack)->n != 0 && (*stack)->n >= 0 && (*stack)->n <= 127)
 	{
-		printf("%c", (char)((*stack)->n));
-		(*stack) = (*stack)->next;
+		element = *stack;
+		printf("%c", (char)(element->n));
+		element = element->next;
 	}
 	printf("\n");
 }
