@@ -61,12 +61,12 @@ int main(int argc, char **argv)
 
 	while (fgets(line, MAX_LINE_LENGTH, file) != NULL)
 	{
-		if (line[0] == '#')
-			continue;
-
 		token = strtok(line, " \t\n");
 		if (token != NULL)
 		{
+			if (token[0] == '#')
+				continue;
+			
 			for (i = 0; opcode_f[i].opcode != NULL; i++)
 			{
 				if (strcmp(opcode_f[i].opcode, token) == 0)
