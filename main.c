@@ -6,8 +6,22 @@ int main(int argc, char **argv);
 instruction_t opcode_f[] = {
 	{"pall", pall},
 	{"push", push},
+	{"pint", pint},
+	{"pop", pop},
+	{"add", add},
+	{"swap", swap},
+	{"nop", nop},
+	{"sub", sub},
+	{"div", divide},
+	{"mul", mul},
+	{"mod", mod},
+	{"pchar", pchar},
 	{NULL, NULL},
 };
+
+stack_t *stack_queue = NULL;
+char *line = NULL;
+FILE *file = NULL;
 
 /**
  * main - Program entry point
@@ -18,12 +32,10 @@ instruction_t opcode_f[] = {
  */
 int main(int argc, char **argv)
 {
-	stack_t *stack_queue = NULL;
 	unsigned int line_number = 1;
 	size_t max_line_length = MAX_LINE_LENGTH;
-	char *line = NULL, *token;
+	char *token;
 	int i;
-	FILE *file = NULL;
 
 	if (argc != 2)
 	{
@@ -35,6 +47,7 @@ int main(int argc, char **argv)
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		free_resources();
 		exit(EXIT_FAILURE);
 	}
 
@@ -42,6 +55,7 @@ int main(int argc, char **argv)
 	if (line == NULL)
 	{
 		fprintf(stderr, "Memory allocation failed\n");
+		free_resources();
 		exit(EXIT_FAILURE);
 	}
 
@@ -50,6 +64,9 @@ int main(int argc, char **argv)
 		token = strtok(line, " \t\n");
 		if (token != NULL)
 		{
+			if (token[0] == '#')
+				continue;
+			
 			for (i = 0; opcode_f[i].opcode != NULL; i++)
 			{
 				if (strcmp(opcode_f[i].opcode, token) == 0)
@@ -62,13 +79,31 @@ int main(int argc, char **argv)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n",
 						line_number, token);
+				free_resources();
 				exit(EXIT_FAILURE);
 			}
 		}
 		line_number++;
 	}
-	free(line);
-	free_list(stack_queue);
-	fclose(file);
+	free_resources();
 	return (EXIT_SUCCESS);
+}
+
+/**
+ * free_resources - Free dynamicall allocation resources used by monty
+ */
+void free_resources(void)
+{
+	if (file != NULL)
+	{
+		fclose(file);
+	}
+	if (stack_queue != NULL)
+	{
+		free_list(stack_queue);
+	}
+	if (line != NULL)
+	{
+		free(line);
+	}
 }

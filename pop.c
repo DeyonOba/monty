@@ -2,18 +2,18 @@
 
 /**
  * pop - This function removes the topmost element of a stack
- * @line_num: THis is the line number of commands for printing error messages
+ * @line_number: Bytecode file number been executed
  * @stack: This is the stack of a doubly linked list
- * Return: Nothing
  */
 
-void pop(stack_t **stack, unsigned int line_num)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top; /**Initailizes top as an element of a stack**/
 
 	if (*stack == NULL) /**Test if their is no element in the stack**/
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		free_resources();
 		exit(EXIT_FAILURE);
 	}
 

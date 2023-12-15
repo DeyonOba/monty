@@ -16,5 +16,3 @@ void free_list(stack_t *head)
 		free(current);
 	}
 }
-
-
