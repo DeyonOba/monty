@@ -15,7 +15,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 
 	while (element != NULL && element->n != 0 && element->n >= 32 && element->n <= 126)
 	{
-		printf("%c", (element->n));
+		printf("%c", element->n);
 		element = element->next;
 	}
 	printf("\n");
