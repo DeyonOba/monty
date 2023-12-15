@@ -1,4 +1,4 @@
-#incude "monty.h"
+#include "monty.h"
 
 /**
  * pstr - This is a function that prints string in a stack starting from the top
@@ -10,12 +10,11 @@
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
-	stack_t *element = *stack;
 
-	if (element != NULL && element->n != 0 && element->n >= 0 && element->n <= 127)
+	if (*stack != NULL && (*stack)->n != 0 && (*stack)->n >= 0 && (*stack)->n <= 127)
 	{
-		print("%c", (char)(element->n));
-		element = element->next;
+		printf("%c", (char)((*stack)->n));
+		(*stack) = (*stack)->next;
 	}
 	printf("\n");
 }
