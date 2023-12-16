@@ -44,6 +44,5 @@ void rotl(stack_t **stack, unsigned int line_number)
 		new->prev = *stack;
 		new->next = NULL;
 		(*stack)->next = new;
-		swap(stack, line_number);
 	}
 }
