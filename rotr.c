@@ -9,7 +9,7 @@ void rotr_handler(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 
-	if (*stack != NULL && (*stack)->next != NULL)
+	if (*stack != NULL)
 	{
 		stack_t *last_node = *stack;
 		while (last_node->next != NULL)
@@ -24,4 +24,3 @@ void rotr_handler(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = NULL;
 	}
 }
-
