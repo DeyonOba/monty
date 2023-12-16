@@ -17,6 +17,7 @@ instruction_t opcode_f[] = {
 	{"mod", mod},
 	{"pchar", pchar},
 	{"pstr", pstr},
+	{"rotl", rotl},
 	{NULL, NULL},
 };
 
