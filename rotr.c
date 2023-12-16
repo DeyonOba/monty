@@ -8,11 +8,11 @@
 
 void rotr(stack_t **stack, unsigned int line_number)
 {
+	stack_t *last_node = *stack;
 	(void)line_number;
 
-	if (*stack != NULL)
+	if (*stack != NULL && (*stack)->next != NULL)
 	{
-		stack_t *last_node = *stack;
 		while (last_node->next != NULL)
 		{
 			last_node = last_node->next;
