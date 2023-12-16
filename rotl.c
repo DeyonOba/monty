@@ -11,17 +11,32 @@ void rotl(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	if (*stack != NULL && (*stack)->next != NULL)
 	{
-		stack_t *current = *stack, *next = NULL, *prev = NULL;
+		int n = (*stack)->n;
+		stack_t *current, *new;
 
-		while (current != NULL)
+		current = (*stack)->next;
+		free(current->prev);
+		current->prev = NULL;
+		*stack = current;
+
+		while (current->next != NULL)
 		{
-			next = current->next;
-			current->next = prev;
-			current->prev = next;
-			prev = current;
-			current = next;
+			current = current->next;
 		}
 
-		*stack = prev;
+		new = malloc(sizeof(stack_t));
+
+		if (new == NULL)
+		{
+			fprintf(stderr, "memory allocation failed\n");
+			free_resources();
+			exit(EXIT_FAILURE);
+		}
+
+		new->n = n;
+		new->prev = current;
+		new->next = NULL;
+		current->next = new;
+
 	}
 }
