@@ -16,6 +16,8 @@ instruction_t opcode_f[] = {
 	{"mul", mul},
 	{"mod", mod},
 	{"pchar", pchar},
+	{"pstr", pstr},
+	{"rotl", rotl},
 	{NULL, NULL},
 };
 
@@ -66,7 +68,7 @@ int main(int argc, char **argv)
 		{
 			if (token[0] == '#')
 				continue;
-			
+
 			for (i = 0; opcode_f[i].opcode != NULL; i++)
 			{
 				if (strcmp(opcode_f[i].opcode, token) == 0)
