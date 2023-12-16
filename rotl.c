@@ -9,34 +9,23 @@
 void rotl(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
-	if (*stack != NULL && (*stack)->next != NULL)
+	if (*stack != NULL)
 	{
-		int n = (*stack)->n;
-		stack_t *current, *new;
-
-		current = (*stack)->next;
-		free(current->prev);
-		current->prev = NULL;
-		*stack = current;
-
+		stack_t *top, *current;
+		int stack_size = 1;
+		
+		top = *stack, current = *stack;
 		while (current->next != NULL)
 		{
 			current = current->next;
+			stack_size++;
 		}
 
-		new = malloc(sizeof(stack_t));
-
-		if (new == NULL)
-		{
-			fprintf(stderr, "memory allocation failed\n");
-			free_resources();
-			exit(EXIT_FAILURE);
-		}
-
-		new->n = n;
-		new->prev = current;
-		new->next = NULL;
-		current->next = new;
+		current->next = top;
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+		top->prev = current;
+		top->next = NULL;
 
 	}
 }
