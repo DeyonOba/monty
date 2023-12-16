@@ -19,11 +19,10 @@ void rotr(stack_t **stack, unsigned int line_number)
 		}
 
 		last_node->next = *stack;
-		(*stack)-> = last_node;
+		(*stack)->prev = last_node;
 		last_node = *stack;
-		(*stack) = last_node-prev;
+		(*stack) = last_node->prev;
 		(*stack)->prev = NULL;
 		last_node->prev = NULL;
 	}
 }
-**/
