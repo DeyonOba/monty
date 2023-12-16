@@ -5,7 +5,7 @@
  * @stack: The pointer to the head of the stack
  * @line_number: Line number
  */
-void rotr_handler(stack_t **stack, unsigned int line_number)
+void rotr(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 
