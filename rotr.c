@@ -7,20 +7,22 @@
  */
 void rotr_handler(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
+	stack_t *tmp = *stack;
 
-	if (*stack != NULL)
+	if (*stack != NULL && (*stack)->next != NULL)
 	{
-		stack_t *last_node = *stack;
-		while (last_node->next != NULL)
+		while (tmp->next != NULL)
 		{
-			last_node = last_node->next;
+			tmp = tmp->next;
 		}
 
-		last_node->next = *stack;
-		(*stack)->prev = last_node;
-		*stack = last_node;
-		(*stack)->prev->next = NULL;
+		tmp->next = *stack;
+		(*stack)->prev = tmp;
+		tmp = *stack;
+		(*stack) = tmp->prev;
 		(*stack)->prev = NULL;
+		tmp->prev = NULL;
 	}
+
+	(void)line_number;
 }
