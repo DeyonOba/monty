@@ -3,7 +3,7 @@
 ## The Monty language
 Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.
 
-![image](DALL.E_2023-12-14.png)
+![image](images/DALL·E_2023-12-25.png)
 
 ## What does LIFO and FIFO mean?
 ### LIFO (Last In, First Out):
