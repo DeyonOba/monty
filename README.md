@@ -22,3 +22,56 @@ A stack typicall supports two main operations:
 - **Pop**: Removes the element from the top of the stack.
 
 In a queue the **pop** removes elements from the bottom of the stack.
+
+## This are the data structures recommended by ALX.
+```c
+/**
+ * struct stack_s - doubly linked list representation of a stack (or queue)
+ * @n: integer
+ * @prev: points to the previous element of the stack (or queue)
+ * @next: points to the next element of the stack (or queue)
+ *
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct stack_s
+{
+        int n;
+        struct stack_s *prev;
+        struct stack_s *next;
+} stack_t;
+```
+Above is a doubly linked list use to create a node of a stack or queue when required.
+```c
+/**
+ * struct instruction_s - opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct instruction_s
+{
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
+```
+We utilized a list of the `instruction_t` structure to scan for the opcode pass per line in the bytecode file, we would be taking a walk with an example how this works.
+
+## Compilation and Test
+For this project we use the `gcc` compiler with the following flags.
+```
+gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
+```
+For our project we wrote bash scripts for both compilation and test output from the bytefile. You can find the files `compiler`, and `valgrind_check` in the repo using link below.
+
+- [**compiler**](https://github.com/DeyonOba/monty/blob/main/compiler)
+- [**valgrind_check**](https://github.com/DeyonOba/monty/blob/main/valgrind_check)
+
+**How to use `valgrind_check`**
+```
+# Executable + bytecode file
+./valgrind_check 00.m
+```
+
