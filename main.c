@@ -93,7 +93,7 @@ int main(int argc, char **argv)
 }
 
 /**
- * free_resources - Free dynamicall allocation resources used by monty
+ * free_resources - Free dynamically allocated resources used by monty
  */
 void free_resources(void)
 {
